@@ -6,71 +6,69 @@
 
 <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 <h4> Danh sách ảnh viện</h4>
-<a class="btn btn-success" style="margin-bottom: 10px" href='@Url.Action("Create", "Studios")'>
-<i class="fa fa-plus"></i> Thêm ảnh viện mới</a>
-
+<div class="row">
+    <a class="btn btn-success" style="margin-bottom: 10px" href='@Url.Action("Create", "Studios")'>
+        <i class="fa fa-plus"></i> Thêm ảnh viện mới
+    </a>
+</div>
+<div class="row ">
     <table class="table table-bordered">
-    <tr >
-        <th>
-            @Html.DisplayNameFor(model => model.StudioCode)
-        </th>
-          <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SkypeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Amount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th class="text-center">#</th>
-    </tr>
+        <tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudioCode)
-        </td>
-         <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SkypeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td class="text-center">
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-</table>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobiNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zalo)
+            </th>
 
+            <th class="text-center">#</th>
+        </tr>
 
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.MobiNumber)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Email)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Zalo)
+                </td>
+
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sm" style="margin-bottom: 10px" href='@Url.Action("Edit", "Studios",new {id = item.Id})'>
+                        <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    <a class="btn btn-info btn-sm" style="margin-bottom: 10px" href='@Url.Action("Details", "Studios",new {id = item.Id})'>
+                        <i class="fa fa-info" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger btn-sm" style="margin-bottom: 10px" href='@Url.Action("Delete", "Studios",new {id = item.Id})'>
+                        <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -46,7 +46,7 @@ namespace DvdShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,StudioCode,SkypeName,PhoneNumber,Address,Price,Amount,Name,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy,Status")] NewStudioViewModel studio)
+        public ActionResult Create(NewStudioViewModel studio)
         {
             if (!ModelState.IsValid) return View(studio);
             var studioViewModel = AutoMapper.Mapper.Map<Studio>(studio);
@@ -72,7 +72,7 @@ namespace DvdShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,StudioCode,SkypeName,PhoneNumber,Address,Price,Amount,Name,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy,Status")] NewStudioViewModel studio)
+        public ActionResult Edit(NewStudioViewModel studio)
         {
             if (!ModelState.IsValid) return View(studio);
             var studioViewModel = AutoMapper.Mapper.Map<Studio>(studio);
