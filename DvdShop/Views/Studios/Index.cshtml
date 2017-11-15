@@ -1,140 +1,84 @@
 ﻿@model IEnumerable<DvdShop.Models.ViewModel.NewStudioViewModel>
 
 @{
-	ViewBag.Title = "Index";
+    ViewBag.Title = "Index";
 }
 
 <h4> Danh sách ảnh viện</h4>
+
+    <a class="btn btn-success" style="margin-bottom: 10px" href='@Url.Action("Create", "Studios")'>
+        <i class="fa fa-plus"></i> Thêm ảnh viện mới
+    </a>
+
+
+
 <div class="row">
-	<a class="btn btn-success" style="margin-bottom: 10px" href='@Url.Action("Create", "Studios")'>
-		<i class="fa fa-plus"></i> Thêm ảnh viện mới
-	</a>
-</div>
- <div class="container">
-	<div class="row">
-@foreach (var item in Model)
-{
-	<div class="col-md-3 col-sm-6">
-			<span class="thumbnail">
-				<img src="~/Content/Images/DSC_4312.jpg" alt="...">
-				<h4>@item.Name</h4>
-				<p><strong>Địa chỉ : </strong>@item.Address</p>
-				<p><strong>Email : </strong>@item.Email</p>
-				<p><strong>Điện thoại : </strong>@item.PhoneNumber</p>
-				<p><strong>Di động : </strong>@item.MobiNumber</p>
-				<hr class="line">
-				<div class="row">
-					<div class="col-md-6 col-sm-6">
-						<p class="price">@item.Price</p>
-					</div>
-					<div class="col-md-6 col-sm-6">
-						<a class="btn btn-warning btn-sm" style="margin-bottom: 10px" href='@Url.Action("Edit", "Studios",new {id = item.Id})'>
-							<i class="fa fa-pencil" aria-hidden="true"></i></a>
-						<a class="btn btn-info btn-sm" style="margin-bottom: 10px" href='@Url.Action("Details", "Studios",new {id = item.Id})'>
-							<i class="fa fa-info" aria-hidden="true"></i></a>
-						<a class="btn btn-danger btn-sm" style="margin-bottom: 10px" href='@Url.Action("Delete", "Studios",new {id = item.Id})'>
-							<i class="fa fa-trash-o" aria-hidden="true"></i></a>
-					</div>
-					
-				</div>
-			</span>
-		</div>
-	
-	
-}
-		</div>
-  </div>
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6">
+                <span class="thumbnail">
+                    <img src="~/Content/Images/DSC_4312.jpg" alt="...">
+                    <h4>@item.Name</h4>
+                    <p><strong>Địa chỉ : </strong>@item.Address</p>
+                    <p><strong>Email : </strong>@item.Email</p>
+                    <p><strong>Điện thoại : </strong>@item.PhoneNumber</p>
+                    <p><strong>Di động : </strong>@item.MobiNumber</p>
+                <hr class="line">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <p class="price">@item.Price</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <a class="btn btn-warning btn-sm" style="margin-bottom: 10px" href='@Url.Action("Edit", "Studios",new {id = item.Id})'>
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-info btn-sm" style="margin-bottom: 10px" href='@Url.Action("Details", "Studios",new {id = item.Id})'>
+                            <i class="fa fa-info" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" style="margin-bottom: 10px" href='@Url.Action("Delete", "Studios",new {id = item.Id})'>
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </span>
+        </div>
 
-@*<div class="row ">
-		<table class="table table-bordered">
-			<tr>
+        }
+    </div>
 
-				<th>
-					@Html.DisplayNameFor(model => model.Name)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.PhoneNumber)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.Address)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.MobiNumber)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.Email)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.Zalo)
-				</th>
-
-				<th class="text-center">#</th>
-			</tr>
-
-			@foreach (var item in Model)
-			{
-				<tr>
-
-					<td>
-						@Html.DisplayFor(modelItem => item.Name)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.PhoneNumber)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Address)
-					</td>
-					<td>
-						@Html.DisplayNameFor(model => model.MobiNumber)
-					</td>
-					<td>
-						@Html.DisplayNameFor(model => model.Email)
-					</td>
-					<td>
-						@Html.DisplayNameFor(model => model.Zalo)
-					</td>
-
-					<td class="text-center">
-						<a class="btn btn-warning btn-sm" style="margin-bottom: 10px" href='@Url.Action("Edit", "Studios",new {id = item.Id})'>
-							<i class="fa fa-pencil" aria-hidden="true"></i></a>
-						<a class="btn btn-info btn-sm" style="margin-bottom: 10px" href='@Url.Action("Details", "Studios",new {id = item.Id})'>
-							<i class="fa fa-info" aria-hidden="true"></i></a>
-						<a class="btn btn-danger btn-sm" style="margin-bottom: 10px" href='@Url.Action("Delete", "Studios",new {id = item.Id})'>
-							<i class="fa fa-trash-o" aria-hidden="true"></i></a>
-					</td>
-				</tr>
-			}
-		</table>
-	</div>*@
 <style>
-	
-	h4{
-		font-weight: 600;
-	}
-	p{
-		font-size: 12px;
-		margin-top: 5px;
-	}
-	.price{
-		font-size: 30px;
-		margin: 0 auto;
-		color: #333;
-	}
-	.right{
-		float:right;
-		border-bottom: 2px solid #4B8E4B;
-	}
-	.thumbnail{
-		opacity:1.00;
-		-webkit-transition: all 0.5s; 
-		transition: all 0.5s;
-	}
-	.thumbnail:hover{
-		opacity:1.00;
-		box-shadow: 0px 0px 10px #4bc6ff;
-	}
-	.line{
-		margin-bottom: 5px;
-	}
-	
+    h4 {
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .price {
+        font-size: 30px;
+        margin: 0 auto;
+        color: #333;
+    }
+
+    .right {
+        float: right;
+        border-bottom: 2px solid #4B8E4B;
+    }
+
+    .thumbnail {
+        opacity: 1.00;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+        .thumbnail:hover {
+            opacity: 1.00;
+            box-shadow: 0px 0px 10px #4bc6ff;
+        }
+
+    .line {
+        margin-bottom: 5px;
+    }
 </style>
