@@ -20,9 +20,11 @@ namespace DvdShop.Models.ViewModel
         public string SkypeName { get; set; }
         [MaxLength(15)]
         [Display(Name = "Số điện thoại")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###-##-####}")]
         public string PhoneNumber { get; set; }
         [MaxLength(15)]
         [Display(Name = "ĐTDĐ")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###-##-####}")]
         public string MobiNumber { get; set; }
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -33,6 +35,7 @@ namespace DvdShop.Models.ViewModel
         [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
         [Display(Name = "Giá thành")]
+        [DisplayFormat(DataFormatString = "{0:C}", ApplyFormatInEditMode = true)]
         public decimal Price { get; set; }
         [MaxLength(500)]
         [Display(Name = "Ghi chú")]
