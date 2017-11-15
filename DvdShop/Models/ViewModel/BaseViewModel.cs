@@ -1,17 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 
-namespace DvdShop.Models.Entities
+namespace DvdShop.Models.ViewModel
 {
-    public class General: IGeneral
+    public class BaseViewModel
     {
-        protected General()
-        {
-            CreatedDate = DateTime.Now;
-        }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Display(Name = "Ngày tạo")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]

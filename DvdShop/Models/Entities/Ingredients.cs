@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace DvdShop.Models.Entities
 {
@@ -15,6 +12,6 @@ namespace DvdShop.Models.Entities
         [Display(Name = "Giá thành")]
         public decimal Price { get; set; }
 
-        public virtual ICollection<Cost> Cost { get; set; }
+        public virtual ICollection<Stock> Stock { get; set; }
     }
 }

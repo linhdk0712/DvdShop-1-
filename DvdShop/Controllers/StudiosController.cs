@@ -1,7 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using DvdShop.Models.Entities;
 using DvdShop.Models.Repositories;
 using DvdShop.Models.Services;
+using DvdShop.Models.ViewModel;
 
 namespace DvdShop.Controllers
 {
@@ -17,18 +19,20 @@ namespace DvdShop.Controllers
         public ActionResult Index()
         {
             var result = _studioService.GetAllStudios();
-            return View(result);
+            var studioViewModel = AutoMapper.Mapper.Map<List<NewStudioViewModel>> (result);
+            return View(studioViewModel);
         }
 
         // GET: Studios/Details/5
         public ActionResult Details(int id)
         {
             var studio = _studioService.GetStudioById(id);
+            var studioViewModel = AutoMapper.Mapper.Map<NewStudioViewModel>(studio);
             if (studio == null)
             {
                 return HttpNotFound();
             }
-            return View(studio);
+            return View(studioViewModel);
         }
 
         // GET: Studios/Create
@@ -42,10 +46,11 @@ namespace DvdShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,StudioCode,SkypeName,PhoneNumber,Address,Price,Amount,Name,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy,Status")] Studio studio)
+        public ActionResult Create([Bind(Include = "Id,StudioCode,SkypeName,PhoneNumber,Address,Price,Amount,Name,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy,Status")] NewStudioViewModel studio)
         {
             if (!ModelState.IsValid) return View(studio);
-            _studioService.Add(studio);
+            var studioViewModel = AutoMapper.Mapper.Map<Studio>(studio);
+            _studioService.Add(studioViewModel);
             return RedirectToAction("Index");
         }
 
@@ -54,11 +59,12 @@ namespace DvdShop.Controllers
         {
            
             var studio = _studioService.GetStudioById(id);
+            var studioViewModel = AutoMapper.Mapper.Map<NewStudioViewModel>(studio);
             if (studio == null)
             {
                 return HttpNotFound();
             }
-            return View(studio);
+            return View(studioViewModel);
         }
 
         // POST: Studios/Edit/5
@@ -66,10 +72,11 @@ namespace DvdShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,StudioCode,SkypeName,PhoneNumber,Address,Price,Amount,Name,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy,Status")] Studio studio)
+        public ActionResult Edit([Bind(Include = "Id,StudioCode,SkypeName,PhoneNumber,Address,Price,Amount,Name,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy,Status")] NewStudioViewModel studio)
         {
             if (!ModelState.IsValid) return View(studio);
-            _studioService.Update(studio);
+            var studioViewModel = AutoMapper.Mapper.Map<Studio>(studio);
+            _studioService.Update(studioViewModel);
             return RedirectToAction("Index");
         }
 

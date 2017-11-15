@@ -6,8 +6,8 @@ namespace DvdShop.Models.Entities
 {
     public class Product: General
     {
-        [Required(ErrorMessage = "Product name is required")]
-        [Display(Name = "Product Name")]
+        [Display(Name = "Tên sản phẩm")]
+        [Required(ErrorMessage = "Tên sản phẩm không được để trống")]
         public string Name { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Ngày nhận")]
@@ -16,6 +16,8 @@ namespace DvdShop.Models.Entities
         public bool IsFullBox { get; set; }
         [Display(Name = "Giá thành")]
         public decimal Price { get; set; }
+        [MaxLength(500)]
+        [DataType("nvarchar")]
         [Display(Name = "Ghi chú")]
         public string Comment { get; set; }
         [Display(Name = "Ảnh viện")]

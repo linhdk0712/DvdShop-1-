@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using DvdShop.Models.Entities;
 using DvdShop.Models.Repositories;
 

@@ -55,8 +55,8 @@
     <Reference Include="Autofac.Integration.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Mvc5.3.0.0\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper, Version=6.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.0\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.1.2\lib\net45\CommonServiceLocator.dll</HintPath>
@@ -215,6 +215,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapping\AutoMapperConfiguration.cs" />
     <Compile Include="Migrations\201711100639012_InitContext.cs" />
     <Compile Include="Migrations\201711100639012_InitContext.Designer.cs">
       <DependentUpon>201711100639012_InitContext.cs</DependentUpon>
@@ -227,14 +228,19 @@
     <Compile Include="Migrations\201711140617213_update-studioId-foreignKey.Designer.cs">
       <DependentUpon>201711140617213_update-studioId-foreignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711150324142_install-automaper.cs" />
+    <Compile Include="Migrations\201711150324142_install-automaper.Designer.cs">
+      <DependentUpon>201711150324142_install-automaper.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DvdDbContext.cs" />
-    <Compile Include="Models\Entities\Cost.cs" />
+    <Compile Include="Models\Entities\Stock.cs" />
     <Compile Include="Models\Entities\General.cs" />
     <Compile Include="Models\Entities\IGeneral.cs" />
     <Compile Include="Models\Entities\Ingredients.cs" />
     <Compile Include="Models\Entities\Product.cs" />
     <Compile Include="Models\Entities\Studio.cs" />
+    <Compile Include="Models\IngredientsRepository.cs" />
     <Compile Include="Models\ProducRepository.cs" />
     <Compile Include="Models\Repositories\DbFactory.cs" />
     <Compile Include="Models\Repositories\Disposable.cs" />
@@ -246,8 +252,11 @@
     <Compile Include="Models\Repositories\UnitOfWork.cs" />
     <Compile Include="Models\Services\ProductService.cs" />
     <Compile Include="Models\Services\StudioService.cs" />
+    <Compile Include="Models\StockRepository.cs" />
     <Compile Include="Models\StudioRepository.cs" />
+    <Compile Include="Models\ViewModel\BaseViewModel.cs" />
     <Compile Include="Models\ViewModel\NewProductViewModel.cs" />
+    <Compile Include="Models\ViewModel\NewStudioViewModel.cs" />
     <Compile Include="Models\ViewModel\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -338,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711140617213_update-studioId-foreignKey.resx">
       <DependentUpon>201711140617213_update-studioId-foreignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711150324142_install-automaper.resx">
+      <DependentUpon>201711150324142_install-automaper.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

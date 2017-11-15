@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using DvdShop.Models.Entities;
+﻿using DvdShop.Models.Entities;
 using DvdShop.Models.Repositories;
 
 namespace DvdShop.Models
