@@ -40,6 +40,9 @@ namespace DvdShop.Models.Entities
         [MaxLength(500)]
         [DataType("nvarchar")]
         public string Comment { get; set; }
+        [MaxLength(500)]
+        [DataType(DataType.ImageUrl)]
+        public string Image { get; set; }
 
         [MaxLength(50)]
         [DataType("nvarchar")]

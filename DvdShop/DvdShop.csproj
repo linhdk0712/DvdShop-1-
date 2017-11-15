@@ -228,6 +228,10 @@
     <Compile Include="Migrations\201711150324142_install-automaper.Designer.cs">
       <DependentUpon>201711150324142_install-automaper.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711151354317_add-image-to-studio.cs" />
+    <Compile Include="Migrations\201711151354317_add-image-to-studio.Designer.cs">
+      <DependentUpon>201711151354317_add-image-to-studio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DvdDbContext.cs" />
     <Compile Include="Models\Entities\Stock.cs" />
@@ -260,6 +264,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\DSC_4312.jpg" />
+    <Content Include="Content\Images\Screenshot %281%29.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -334,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711150324142_install-automaper.resx">
       <DependentUpon>201711150324142_install-automaper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151354317_add-image-to-studio.resx">
+      <DependentUpon>201711151354317_add-image-to-studio.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

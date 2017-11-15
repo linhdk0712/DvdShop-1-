@@ -40,6 +40,8 @@ namespace DvdShop.Models.ViewModel
         [MaxLength(500)]
         [Display(Name = "Ghi chú")]
         public string Comment { get; set; }
+        [DataType(DataType.Upload)]
+        public string Image { get; set; }
         [MaxLength(50)]
         [Display(Name = "Chủ ảnh viện")]
         public string Owner { get; set; }

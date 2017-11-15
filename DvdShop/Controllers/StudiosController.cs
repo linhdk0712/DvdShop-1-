@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 using DvdShop.Models.Entities;
 using DvdShop.Models.Repositories;
@@ -46,10 +48,16 @@ namespace DvdShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(NewStudioViewModel studio)
+        public ActionResult Create(NewStudioViewModel studio,HttpPostedFileBase file)
         {
             if (!ModelState.IsValid) return View(studio);
+            if (file != null || file.ContentLength == 0)
+            {
+                var pathsCombine = Path.Combine(Server.MapPath("~/Content/Images"), Path.GetFileName(file.FileName));
+                file.SaveAs(pathsCombine);
+            }
             var studioViewModel = AutoMapper.Mapper.Map<Studio>(studio);
+            studioViewModel.Image = file.FileName;
             _studioService.Add(studioViewModel);
             return RedirectToAction("Index");
         }
