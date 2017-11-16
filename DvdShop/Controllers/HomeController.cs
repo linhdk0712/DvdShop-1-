@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DvdShop.Commons;
 using DvdShop.Models.Services;
 using DvdShop.Models.ViewModel;
 
@@ -36,25 +37,32 @@ namespace DvdShop.Controllers
 
         public ActionResult Error()
         {
-            return HttpNotFound();
+            return View();
         }
-
-        public ActionResult Login(UserViewModel model)
+        [HttpGet]
+        public ActionResult Login()
         {
-            if (ModelState.IsValid)
-            {
-                var result = _userService.GetInfoUser(model.UserName, model.Password);
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string user,string pass)
+        {
+            var pas = Md5.Md5Hash(pass);
+                var result = _userService.GetInfoUser(user, pas);
                 if (result != null)
                 {
-                    return View();
+                    Session["user"] = result.UserName;
+                    Session["fullname"] = result.FullName;
+                    return View("Index");
                 }
                 else
                 {
-                    RedirectToAction("Error");
+                    ViewBag.login = "Đăng nhập không thành công";
+                    return View();
                 }
-            }
-            ModelState.AddModelError("",@"Sai thông tin đăng nhập");
-            return View("Error");
+           
+            
         }
     }
 }

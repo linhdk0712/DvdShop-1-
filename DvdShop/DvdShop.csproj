@@ -206,9 +206,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Commons\md5.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="C:\Users\LINH\Documents\HomeController.cs">
-      <Link>Controllers\HomeController.cs</Link>
-    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\StudiosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2164,6 +2162,7 @@
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
