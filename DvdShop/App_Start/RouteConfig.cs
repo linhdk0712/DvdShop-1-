@@ -29,6 +29,18 @@ namespace DvdShop
 
           );
             routes.MapRoute(
+            name: "anhvien-themmoi",
+            url: "trang-chu/them-moi",
+            defaults: new { controller = "Studios", action = "Create" }
+
+        );
+            routes.MapRoute(
+           name: "anhvien-chitiet",
+           url: "trang-chu/chi-tiet",
+           defaults: new { controller = "Studios", action = "Details" }
+
+       );
+            routes.MapRoute(
              name: "sanpham",
              url: "trang-chu/danh-sach-san-pham",
              defaults: new { controller = "Products", action = "Index" }
