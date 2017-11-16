@@ -12,11 +12,14 @@ namespace DvdShop.Models
 
         public DbSet<Studio> Studios { get; set; }
         public DbSet<Product> Products { get; set; }
-
+        public DbSet<User> Users { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
+        public DbSet<Ingredients> Ingredientses { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
         }
+
        
     }
 }

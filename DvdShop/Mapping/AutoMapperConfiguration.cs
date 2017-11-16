@@ -12,6 +12,8 @@ namespace DvdShop.Mapping
             {
                 cfg.CreateMap<Studio, NewStudioViewModel>().MaxDepth(2);
                 cfg.CreateMap<NewStudioViewModel, Studio>().MaxDepth(2);
+                cfg.CreateMap<User, UserViewModel>().MaxDepth(2);
+                cfg.CreateMap<UserViewModel, User>().MaxDepth(2);
             });
         }
     }

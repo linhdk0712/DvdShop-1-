@@ -26,6 +26,7 @@ namespace DvdShop.Models.ViewModel
         [Display(Name = "ĐTDĐ")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###-##-####}")]
         public string MobiNumber { get; set; }
+        [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
         [MaxLength(50)]

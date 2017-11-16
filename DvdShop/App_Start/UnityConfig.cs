@@ -49,6 +49,8 @@ namespace DvdShop
             container.RegisterType<IStudioService, StudioService>();
             container.RegisterType<IProducRepository, ProducRepository>();
             container.RegisterType<IProductService, ProductService>();
+            container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<IUserService, UserService>();
         }
     }
 }

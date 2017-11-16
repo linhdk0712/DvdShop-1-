@@ -205,7 +205,9 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="C:\Users\LINH\Documents\HomeController.cs">
+      <Link>Controllers\HomeController.cs</Link>
+    </Compile>
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\StudiosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -240,6 +242,7 @@
     <Compile Include="Models\Entities\Ingredients.cs" />
     <Compile Include="Models\Entities\Product.cs" />
     <Compile Include="Models\Entities\Studio.cs" />
+    <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\IngredientsRepository.cs" />
     <Compile Include="Models\ProducRepository.cs" />
     <Compile Include="Models\Repositories\DbFactory.cs" />
@@ -252,12 +255,15 @@
     <Compile Include="Models\Repositories\UnitOfWork.cs" />
     <Compile Include="Models\Services\ProductService.cs" />
     <Compile Include="Models\Services\StudioService.cs" />
+    <Compile Include="Models\Services\UserService.cs" />
     <Compile Include="Models\StockRepository.cs" />
     <Compile Include="Models\StudioRepository.cs" />
+    <Compile Include="Models\UserRepository.cs" />
     <Compile Include="Models\ViewModel\BaseViewModel.cs" />
     <Compile Include="Models\ViewModel\NewProductViewModel.cs" />
     <Compile Include="Models\ViewModel\NewStudioViewModel.cs" />
     <Compile Include="Models\ViewModel\ProductViewModel.cs" />
+    <Compile Include="Models\ViewModel\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
