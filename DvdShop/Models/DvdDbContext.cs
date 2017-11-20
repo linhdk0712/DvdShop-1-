@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using DvdShop.Models.Entities;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace DvdShop.Models
 {

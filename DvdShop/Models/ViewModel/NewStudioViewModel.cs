@@ -20,11 +20,9 @@ namespace DvdShop.Models.ViewModel
         public string SkypeName { get; set; }
         [MaxLength(15)]
         [Display(Name = "Số điện thoại")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###-##-####}")]
         public string PhoneNumber { get; set; }
         [MaxLength(15)]
         [Display(Name = "ĐTDĐ")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:###-##-####}")]
         public string MobiNumber { get; set; }
         [EmailAddress]
         [Display(Name = "Email")]

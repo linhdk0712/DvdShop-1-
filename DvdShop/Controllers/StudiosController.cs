@@ -52,7 +52,7 @@ namespace DvdShop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(NewStudioViewModel studio,HttpPostedFileBase file)
         {
-            //if (!ModelState.IsValid) return View(studio);
+            if (!ModelState.IsValid) return View(studio);
             if (file != null || file.ContentLength == 0)
             {
                 var pathsCombine = Path.Combine(Server.MapPath("~/Content/Images"), Path.GetFileName(file.FileName));
@@ -86,17 +86,17 @@ namespace DvdShop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(NewStudioViewModel studio, HttpPostedFileBase file)
         {
-            //if (!ModelState.IsValid) return View(studio);
-          
-            if (file != null || file.ContentLength == 0)
+            
+            if (!ModelState.IsValid) return View(studio);
+            if (file != null)
             {
                 var pathsCombine = Path.Combine(Server.MapPath("~/Content/Images"), Path.GetFileName(file.FileName));
                 file.SaveAs(pathsCombine);
                 studio.Image = file.FileName;
             }
-            studio.CreatedDate = DateTime.Now;
-            studio.UpdatedDate = DateTime.Now;
+            
             studio.UpdatedBy = Session["user"].ToString();
+            studio.UpdatedDate = DateTime.Now;
             var studioViewModel = AutoMapper.Mapper.Map<Studio>(studio);
             _studioService.Update(studioViewModel);
             return RedirectToAction("Index");

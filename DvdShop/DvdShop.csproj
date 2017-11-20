@@ -2176,7 +2176,6 @@
     <Content Include="Views\Studios\Create.cshtml" />
     <Content Include="Views\Studios\Delete.cshtml" />
     <Content Include="Views\Studios\Details.cshtml" />
-    <Content Include="Views\Studios\Edit.cshtml" />
     <Content Include="Views\Studios\Index.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Delete.cshtml" />
@@ -2185,6 +2184,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Studios\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
