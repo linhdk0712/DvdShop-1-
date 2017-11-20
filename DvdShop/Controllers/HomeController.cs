@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using DvdShop.Commons;
 using DvdShop.Models.Services;
-using DvdShop.Models.ViewModel;
 
 namespace DvdShop.Controllers
 {
     public class HomeController : Controller
     {
-        private IUserService _userService;
+        private readonly IUserService _userService;
         public HomeController(IUserService userService)
         {
             _userService = userService;
@@ -23,14 +18,14 @@ namespace DvdShop.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Về chúng tôi";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Địa chỉ liên hệ";
 
             return View();
         }

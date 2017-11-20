@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
@@ -34,7 +35,8 @@ namespace DvdShop.Controllers
             {
                 return HttpNotFound();
             }
-            return View(studioViewModel);
+            ViewBag.studio = studioViewModel;
+            return View();
         }
 
         // GET: Studios/Create
@@ -50,7 +52,7 @@ namespace DvdShop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(NewStudioViewModel studio,HttpPostedFileBase file)
         {
-            if (!ModelState.IsValid) return View(studio);
+            //if (!ModelState.IsValid) return View(studio);
             if (file != null || file.ContentLength == 0)
             {
                 var pathsCombine = Path.Combine(Server.MapPath("~/Content/Images"), Path.GetFileName(file.FileName));
@@ -58,6 +60,8 @@ namespace DvdShop.Controllers
             }
             var studioViewModel = AutoMapper.Mapper.Map<Studio>(studio);
             studioViewModel.Image = file.FileName;
+            studioViewModel.CreatedDate = DateTime.Now;
+            studioViewModel.CreatedBy = Session["user"].ToString();
             _studioService.Add(studioViewModel);
             return RedirectToAction("Index");
         }
@@ -80,9 +84,19 @@ namespace DvdShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(NewStudioViewModel studio)
+        public ActionResult Edit(NewStudioViewModel studio, HttpPostedFileBase file)
         {
-            if (!ModelState.IsValid) return View(studio);
+            //if (!ModelState.IsValid) return View(studio);
+          
+            if (file != null || file.ContentLength == 0)
+            {
+                var pathsCombine = Path.Combine(Server.MapPath("~/Content/Images"), Path.GetFileName(file.FileName));
+                file.SaveAs(pathsCombine);
+                studio.Image = file.FileName;
+            }
+            studio.CreatedDate = DateTime.Now;
+            studio.UpdatedDate = DateTime.Now;
+            studio.UpdatedBy = Session["user"].ToString();
             var studioViewModel = AutoMapper.Mapper.Map<Studio>(studio);
             _studioService.Update(studioViewModel);
             return RedirectToAction("Index");

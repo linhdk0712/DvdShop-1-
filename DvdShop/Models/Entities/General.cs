@@ -8,7 +8,7 @@ namespace DvdShop.Models.Entities
     {
         protected General()
         {
-            CreatedDate = DateTime.Now;
+           
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

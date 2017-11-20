@@ -1,113 +1,219 @@
-﻿@model DvdShop.Models.ViewModel.NewStudioViewModel
+﻿@using DvdShop.Models.ViewModel
+
 
 @{
-    ViewBag.Title = "Details";
+	ViewBag.Title = "Details";
+    var result = ViewBag.studio as NewStudioViewModel;
 }
+<br/>
+<br/>
+<br/>
+<div class="container">
+		<div class="card">
+			<div class="container-fluid">
+			    <div class="wrapper row">
+			        <div class="preview col-md-6">
+						
+			            <div class="preview-pic tab-content">
+			                <div class="tab-pane active" id="pic-1"><img src="~/Content/Images/@result.Image" /></div>
+			            </div>
+			        </div>
+			        <div class="details col-md-6">
+			            <h3 class="product-title">@result.Name</h3>
+			            <h4 class="price">Giá thành : <span>@result.Price VNĐ</span></h4>
+					   
+			            <h5 class="price">Skype : <span>@result.SkypeName</span></h5>
+			            <h5 class="price">Email : <span>@result.Email</span></h5>
+			            <h5 class="price">Điện thoại cố định : <span>@result.PhoneNumber</span></h5>
+			            <h5 class="price">Điện thoại di động : <span>@result.MobiNumber</span></h5>
+			            <h5 class="price">Zalo : <span>@result.Zalo</span></h5>
+			            <h5 class="price">Địa chỉ : <span>@result.Address</span></h5>
+			            <h5 class="price">Chủ sở hữu : <span>@result.Owner</span></h5>
 
-<h2>Thông tin chi tiết</h2>
+					   
+			            <div class="action">
+			                <a class="add-to-cart  btn btn-default" href="@Url.Action("Create","Products")"><i class="fa fa-plus"></i>Thêm mới sản phẩm</a>
+			                @* <button class="add-to-cart btn btn-default" type="button">add to cart</button>*@
+			            </div>
+			        </div>
+			    </div>
+			    <div class="wrapper row">
+			        @Html.ActionLink("Edit", "Edit", new {id = result.Id}) |
+			        @Html.ActionLink("Back to List", "Index")
 
-<div>
-   <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.StudioCode)
-        </dt>
+			    </div>
+			</div>
+		</div>
+	</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudioCode)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SkypeName)
-        </dt>
+	
 
-        <dd>
-            @Html.DisplayFor(model => model.SkypeName)
-        </dd>
+<style type="text/css">
+	
+/*****************globals*************/
+body {
+  font-family: 'open sans';
+  overflow-x: hidden; }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
+img {
+  max-width: 100%; }
 
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
+.preview {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+	  -ms-flex-direction: column;
+		  flex-direction: column; }
+  @@media screen and (max-width: 996px) {
+	.preview {
+	  margin-bottom: 20px; } }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+.preview-pic {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+	  -ms-flex-positive: 1;
+		  flex-grow: 1; }
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+.preview-thumbnail.nav-tabs {
+  border: none;
+  margin-top: 15px; }
+  .preview-thumbnail.nav-tabs li {
+	width: 18%;
+	margin-right: 2.5%; }
+	.preview-thumbnail.nav-tabs li img {
+	  max-width: 100%;
+	  display: block; }
+	.preview-thumbnail.nav-tabs li a {
+	  padding: 0;
+	  margin: 0; }
+	.preview-thumbnail.nav-tabs li:last-of-type {
+	  margin-right: 0; }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+.tab-content {
+  overflow: hidden; }
+  .tab-content img {
+	width: 100%;
+	-webkit-animation-name: opacity;
+			animation-name: opacity;
+	-webkit-animation-duration: .3s;
+			animation-duration: .3s; }
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+.card {
+  margin-top: 50px;
+  background: #eee;
+  padding: 3em;
+  line-height: 1.5em; }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Amount)
-        </dt>
+@@media screen and (min-width: 997px) {
+  .wrapper {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex; } }
 
-        <dd>
-            @Html.DisplayFor(model => model.Amount)
-        </dd>
+.details {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+	  -ms-flex-direction: column;
+		  flex-direction: column; }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+.colors {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+	  -ms-flex-positive: 1;
+		  flex-grow: 1; }
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+.product-title, .price, .sizes, .colors {
+  text-transform: UPPERCASE;
+  font-weight: bold; }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
+.checked, .price span {
+  color: #ff9f1a; }
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
+.product-title, .rating, .product-description, .price, .vote, .sizes {
+  margin-bottom: 15px; }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
+.product-title {
+  margin-top: 0; }
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
+.size {
+  margin-right: 10px; }
+  .size:first-of-type {
+	margin-left: 40px; }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
+.color {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  height: 2em;
+  width: 2em;
+  border-radius: 2px; }
+  .color:first-of-type {
+	margin-left: 20px; }
 
-        <dd>
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
+.add-to-cart, .like {
+  background: #ff9f1a;
+  padding: 1.2em 1.5em;
+  border: none;
+  text-transform: UPPERCASE;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: background .3s ease;
+		  transition: background .3s ease; }
+  .add-to-cart:hover, .like:hover {
+	background: #b36800;
+	color: #fff; }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedBy)
-        </dt>
+.not-available {
+  text-align: center;
+  line-height: 2em; }
+  .not-available:before {
+	font-family: fontawesome;
+	content: "\f00d";
+	color: #fff; }
 
-        <dd>
-            @Html.DisplayFor(model => model.UpdatedBy)
-        </dd>
+.orange {
+  background: #ff9f1a; }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
+.green {
+  background: #85ad00; }
 
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
+.blue {
+  background: #0076ad; }
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+.tooltip-inner {
+  padding: 1.3em; }
+
+@@-webkit-keyframes opacity {
+  0% {
+	opacity: 0;
+	-webkit-transform: scale(3);
+			transform: scale(3); }
+  100% {
+	opacity: 1;
+	-webkit-transform: scale(1);
+			transform: scale(1); } }
+
+
+@@keyframes opacity {
+  0% {
+	opacity: 0;
+	-webkit-transform: scale(3);
+			transform: scale(3); }
+  100% {
+	opacity: 1;
+	-webkit-transform: scale(1);
+			transform: scale(1); } }
+
+/*# sourceMappingURL=style.css.map */
+</style>

@@ -13,7 +13,7 @@ namespace DvdShop.Models.ViewModel
         [Required(ErrorMessage = "Studio Code is required")]
         public string StudioCode { get; set; }
         [MaxLength(250)]
-        [Display(Name = "Studio Name")]
+        [Display(Name = "Tên ảnh viện")]
         [Required(ErrorMessage = "Studio name is required")]
         public string Name { get; set; }
         [Display(Name = "Skype")]
@@ -36,17 +36,17 @@ namespace DvdShop.Models.ViewModel
         [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
         [Display(Name = "Giá thành")]
-        [DisplayFormat(DataFormatString = "{0:C}", ApplyFormatInEditMode = true)]
         public decimal Price { get; set; }
         [MaxLength(500)]
         [Display(Name = "Ghi chú")]
         public string Comment { get; set; }
+        [Display(Name = "Ảnh đại diện")]
         [DataType(DataType.Upload)]
         public string Image { get; set; }
         [MaxLength(50)]
         [Display(Name = "Chủ ảnh viện")]
         public string Owner { get; set; }
-
+        [Display(Name = "Số lượng đĩa")]
         public byte Amount { get; set; }
     }
 }
