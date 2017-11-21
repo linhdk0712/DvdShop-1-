@@ -9,7 +9,7 @@ namespace DvdShop.Models.Entities
         [Display(Name = "Tên sản phẩm")]
         [Required(ErrorMessage = "Tên sản phẩm không được để trống")]
         public string Name { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Ngày nhận")]
         public DateTime ReceivedDate { get; set; }
         [Display(Name = "Làm hộp")]

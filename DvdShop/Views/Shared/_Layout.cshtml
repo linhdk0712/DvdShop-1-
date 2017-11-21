@@ -1,10 +1,10 @@
 ﻿
 @{
 
-    if (Session["user"] == null)
-    {
-        Response.Redirect("~/Home/Login");
-    }
+//if (Session["user"] == null)
+//{
+//    Response.Redirect("~/Home/Login");
+//}
 
 }
 <!DOCTYPE html>
@@ -39,6 +39,7 @@
     </div>
     <div class="container body-content">
         @RenderBody()
+       
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>

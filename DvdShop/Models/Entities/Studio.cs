@@ -51,6 +51,7 @@ namespace DvdShop.Models.Entities
         public byte Amount { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<ToDo> ToDos { get; set; }
 
     }
 }

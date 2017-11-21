@@ -258,6 +258,10 @@
     <Compile Include="Migrations\201711160659026_add-user-model.Designer.cs">
       <DependentUpon>201711160659026_add-user-model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711210623307_add-table-todo.cs" />
+    <Compile Include="Migrations\201711210623307_add-table-todo.Designer.cs">
+      <DependentUpon>201711210623307_add-table-todo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DvdDbContext.cs" />
     <Compile Include="Models\Entities\Stock.cs" />
@@ -266,6 +270,7 @@
     <Compile Include="Models\Entities\Ingredients.cs" />
     <Compile Include="Models\Entities\Product.cs" />
     <Compile Include="Models\Entities\Studio.cs" />
+    <Compile Include="Models\Entities\ToDo.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\IngredientsRepository.cs" />
     <Compile Include="Models\ProducRepository.cs" />
@@ -2211,6 +2216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711160659026_add-user-model.resx">
       <DependentUpon>201711160659026_add-user-model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711210623307_add-table-todo.resx">
+      <DependentUpon>201711210623307_add-table-todo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

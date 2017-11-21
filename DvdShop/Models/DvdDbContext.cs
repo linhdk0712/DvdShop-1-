@@ -16,6 +16,8 @@ namespace DvdShop.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<Ingredients> Ingredientses { get; set; }
+        public DbSet<ToDo> ToDos { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
