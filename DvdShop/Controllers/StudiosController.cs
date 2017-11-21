@@ -84,7 +84,7 @@ namespace DvdShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(NewStudioViewModel studio, HttpPostedFileBase file)
+        public ActionResult Edit([Bind(Include = "Id,StudioCode,Name,SkypeName,PhoneNumber,MobiNumber,Email,Zalo,Address,Price,Comment,Image,Owner,Amount,CreatedDate,CreatedBy,Status")] NewStudioViewModel studio, HttpPostedFileBase file)
         {
             
             if (!ModelState.IsValid) return View(studio);
