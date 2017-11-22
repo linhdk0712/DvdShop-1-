@@ -46,5 +46,7 @@ namespace DvdShop.Models.ViewModel
         public string Owner { get; set; }
         [Display(Name = "Số lượng đĩa")]
         public byte Amount { get; set; }
+        [Display(Name = "Làm hộp")]
+        public bool IsFullBox { get; set; }
     }
 }

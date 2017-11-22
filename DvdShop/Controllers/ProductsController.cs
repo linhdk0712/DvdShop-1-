@@ -22,18 +22,21 @@ namespace DvdShop.Controllers
         public ActionResult Index()
         {
             var products = _productService.GetAllProducts();
-            var studio = _studioService.GetAllStudios();
+            var studios = _studioService.GetAllStudios();
             var result = (from a in products
-                          join b in studio on a.StudioId equals b.Id
+                          join b in studios on a.StudioId equals b.Id
                           select new ProductViewModel()
                           {
                               Id = a.Id,
                               Name = a.Name,
                               StudioName = b.Name,
+                              Price = a.Price,
+                              IsFullBox = a.IsFullBox,
                               DateCreate = a.CreatedDate,
-                              ReceivedDate = a.ReceivedDate
+                              ReceivedDate = a.ReceivedDate,
+                              Comment = a.Comment
                           }); 
-            if (products == null || studio == null)
+            if (products == null || studios == null)
             {
                 return HttpNotFound();
             }
@@ -118,11 +121,8 @@ namespace DvdShop.Controllers
         public ActionResult Create()
         {
             var studios = _studioService.GetAllStudios();
-            var newProduct = new NewProductViewModel
-            {
-                Studios = studios
-            };
-            return View(newProduct);
+            ViewBag.studio = studios;
+            return View();
         }
 
         // POST: Products/Create
@@ -130,22 +130,42 @@ namespace DvdShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,StudioId,ReceivedDate,Name,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy,Status")] Product product)
+        public ActionResult Create(NewProductViewModel product)
         {
-            
+            var studios = _studioService.GetAllStudios();
+            ViewBag.studio = studios;
             if (!ModelState.IsValid)
             {
-                var studios = _studioService.GetAllStudios();
-                var newProduct = new NewProductViewModel
-                {
-                    Product = product,
-                    Studios = studios
-                };
-                return View(newProduct);
+                return View();
             }
-            _productService.Add(product);
-            return RedirectToAction("Index");
-            
+            var p = new Product()
+            {
+                ReceivedDate = product.ReceivedDate,
+                Name = product.Name,
+                CreatedDate = DateTime.Now,
+                //CreatedBy = Session["user"].ToString(),
+                Status = product.Status,
+                StudioId = product.StudioId,
+                IsFullBox = product.IsFullBox,
+                Price = product.Price,
+                Comment = product.Comment
+            };
+            if (product.Price == 0)
+            {
+                p.Price = studios.Where(x => x.Id == p.StudioId).Select(x => x.Price).FirstOrDefault();
+            }
+            if (!product.IsFullBox)
+            {
+                p.IsFullBox = studios.Where(x => x.Id == p.StudioId).Select(x => x.IsFullBox).FirstOrDefault();
+            }
+            _productService.Add(p);
+            //return RedirectToAction("Index");
+            var statusId = p.Id > 0;
+            return Json(new
+            {
+                status = statusId
+            },JsonRequestBehavior.AllowGet);
+
         }
 
         // GET: Products/Edit/5

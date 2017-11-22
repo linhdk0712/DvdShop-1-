@@ -23,7 +23,13 @@
             @Html.DisplayNameFor(model => model.ReceivedDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateCreate)
+            @Html.DisplayNameFor(model => model.IsFullBox)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+          <th>
+            @Html.DisplayNameFor(model => model.Comment)
         </th>
         <th class="text-center">#</th>
     </tr>
@@ -41,7 +47,13 @@
                 @Html.DisplayFor(modelItem => item.ReceivedDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateCreate)
+                @Html.DisplayFor(modelItem => item.IsFullBox)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.Comment)
             </td>
             <td class="text-center">
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

@@ -262,6 +262,18 @@
     <Compile Include="Migrations\201711210623307_add-table-todo.Designer.cs">
       <DependentUpon>201711210623307_add-table-todo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711220237546_remove-todo-table.cs" />
+    <Compile Include="Migrations\201711220237546_remove-todo-table.Designer.cs">
+      <DependentUpon>201711220237546_remove-todo-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711220549112_add-isfullbox-to-studio.cs" />
+    <Compile Include="Migrations\201711220549112_add-isfullbox-to-studio.Designer.cs">
+      <DependentUpon>201711220549112_add-isfullbox-to-studio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711220609266_fix-show-product-index.cs" />
+    <Compile Include="Migrations\201711220609266_fix-show-product-index.Designer.cs">
+      <DependentUpon>201711220609266_fix-show-product-index.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DvdDbContext.cs" />
     <Compile Include="Models\Entities\Stock.cs" />
@@ -270,7 +282,6 @@
     <Compile Include="Models\Entities\Ingredients.cs" />
     <Compile Include="Models\Entities\Product.cs" />
     <Compile Include="Models\Entities\Studio.cs" />
-    <Compile Include="Models\Entities\ToDo.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\IngredientsRepository.cs" />
     <Compile Include="Models\ProducRepository.cs" />
@@ -1868,6 +1879,7 @@
     <Content Include="Scripts\admin\dist\js\demo.js" />
     <Content Include="Scripts\admin\dist\js\pages\dashboard.js" />
     <Content Include="Scripts\admin\dist\js\pages\dashboard2.js" />
+    <Content Include="Scripts\admin\notify.min.js" />
     <Content Include="Scripts\admin\plugins\iCheck\all.css" />
     <Content Include="Scripts\admin\plugins\iCheck\flat\aero%402x.png" />
     <Content Include="Scripts\admin\plugins\iCheck\flat\aero.css" />
@@ -2182,7 +2194,6 @@
     <Content Include="Views\Studios\Delete.cshtml" />
     <Content Include="Views\Studios\Details.cshtml" />
     <Content Include="Views\Studios\Index.cshtml" />
-    <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Delete.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
@@ -2190,6 +2201,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Studios\Edit.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2219,6 +2231,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711210623307_add-table-todo.resx">
       <DependentUpon>201711210623307_add-table-todo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711220237546_remove-todo-table.resx">
+      <DependentUpon>201711220237546_remove-todo-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711220549112_add-isfullbox-to-studio.resx">
+      <DependentUpon>201711220549112_add-isfullbox-to-studio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711220609266_fix-show-product-index.resx">
+      <DependentUpon>201711220609266_fix-show-product-index.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
