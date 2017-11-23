@@ -5,6 +5,7 @@ using DvdShop.Models.Entities;
 using DvdShop.Models.Repositories;
 using DvdShop.Models.Services;
 using DvdShop.Models.ViewModel;
+using PagedList;
 
 namespace DvdShop.Controllers
 {
@@ -19,7 +20,7 @@ namespace DvdShop.Controllers
         }
 
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var products = _productService.GetAllProducts();
             var studios = _studioService.GetAllStudios();
@@ -35,7 +36,7 @@ namespace DvdShop.Controllers
                               DateCreate = a.CreatedDate,
                               ReceivedDate = a.ReceivedDate,
                               Comment = a.Comment
-                          }); 
+                          }).ToPagedList(page ?? 1,10); 
             if (products == null || studios == null)
             {
                 return HttpNotFound();
@@ -134,6 +135,7 @@ namespace DvdShop.Controllers
         {
             var studios = _studioService.GetAllStudios();
             ViewBag.studio = studios;
+            ViewBag.success = null;
             if (!ModelState.IsValid)
             {
                 return View();
@@ -159,12 +161,19 @@ namespace DvdShop.Controllers
                 p.IsFullBox = studios.Where(x => x.Id == p.StudioId).Select(x => x.IsFullBox).FirstOrDefault();
             }
             _productService.Add(p);
-            //return RedirectToAction("Index");
-            var statusId = p.Id > 0;
-            return Json(new
+            var statusId = p.Id ;
+            if (statusId > 0)
             {
-                status = statusId
-            },JsonRequestBehavior.AllowGet);
+                ViewBag.success = "Created Successfully";
+                //return RedirectToAction("Index");
+                return View();
+            }
+            else
+            {
+                ViewBag.success = "Created Unsuccessfully";
+                return View();
+
+            }
 
         }
 
