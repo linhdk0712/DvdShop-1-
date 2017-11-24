@@ -4,15 +4,18 @@
 @{
     ViewBag.Title = "Index";
 }
-<br/>
-<h4>Danh sách sản phẩm</h4>
-<p>
 
+<br/>
+<br/>
+<br/>
+<div>
     <a class="btn btn-success" style="margin-bottom: 10px" href='@Url.Action("Create", "Products")'>
         <i class="fa fa-plus"></i> Thêm sản phẩm mới
     </a>
-</p>
-<table class="table table-bordered">
+</div>
+<h4>Danh sách sản phẩm</h4>
+<div class="container">
+    <table class="table table-bordered">
     <tr>
         <th>
            Name
@@ -47,9 +50,15 @@
             <td>
                 @item.ReceivedDate
             </td>
-            <td>
-                @item.IsFullBox ?"Có":"Không"
-            </td>
+            
+                @if (item.IsFullBox)
+                {
+                  <td>Có</td>
+                }
+                else
+                {
+                     <td>Không</td>
+                }
             <td>
                 @item.Price
             </td>
@@ -64,4 +73,8 @@
         </tr>
     }
 </table>
- @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+ 
