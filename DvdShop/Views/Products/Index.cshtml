@@ -5,9 +5,9 @@
     ViewBag.Title = "Index";
 }
 
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />
 <div>
     <a class="btn btn-success" style="margin-bottom: 10px" href='@Url.Action("Create", "Products")'>
         <i class="fa fa-plus"></i> Thêm sản phẩm mới
@@ -16,65 +16,75 @@
 <h4>Danh sách sản phẩm</h4>
 <div class="container">
     <table class="table table-bordered">
-    <tr>
-        <th>
-           Name
-        </th>
-        <th>
-            StudioName
-        </th>
-        <th>
-           ReceivedDate
-        </th>
-        <th>
-           IsFullBox
-        </th>
-        <th>
-           Price
-        </th>
-        <th>
-           Comment
-        </th>
-        <th class="text-center">#</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+        <thead>
         <tr>
-            <td>
-                @item.Name
-            </td>
-            <td>
-                @item.StudioName
-            </td>
-            <td>
-                @item.ReceivedDate
-            </td>
-            
+            <th>
+                Tên
+            </th>
+            <th>
+                Ảnh viện
+            </th>
+            <th>
+                Ngày nhận
+            </th>
+            <th>
+                Làm hộp
+            </th>
+            <th>
+                Giá tiền
+            </th>
+            <th>
+                Ghi chú
+            </th>
+            <th class="text-center">#</th>
+        </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tbody>
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.StudioName
+                </td>
+                <td>
+                    @item.ReceivedDate.ToString("yyyy-MM-dd")
+                </td>
+
                 @if (item.IsFullBox)
                 {
-                  <td>Có</td>
+                    <td>Có</td>
                 }
                 else
                 {
-                     <td>Không</td>
+                    <td>Không</td>
                 }
-            <td>
-                @item.Price
-            </td>
-            <td>
-                @item.Comment
-            </td>
-            <td class="text-center">
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-</table>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    @item.Comment
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sm" style="margin-bottom: 10px" href='@Url.Action("Edit", "Products", new {id = item.Id})'>
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class="btn btn-info btn-sm" style="margin-bottom: 10px" href='@Url.Action("Details", "Products", new {id = item.Id})'>
+                        <i class="fa fa-info"></i>
+                    </a>
+                    <a class="btn btn-danger btn-sm" style="margin-bottom: 10px" href='@Url.Action("Delete", "Products", new {id = item.Id})'>
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+            
+        }
+    </table>
 </div>
 <div>
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>
- 

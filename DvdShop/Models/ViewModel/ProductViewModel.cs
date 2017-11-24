@@ -19,10 +19,14 @@ namespace DvdShop.Models.ViewModel
         [Display(Name = "Ghi chú")]
         public string Comment { get; set; }
         [Display(Name = "Ngày nhận")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ReceivedDate { get; set; }
         [Display(Name = "Ngày tạo")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateCreate { get; set; }
+        [Display(Name = "Người tạo")]
+        public string CreatedBy { get; set; }
+        [Display(Name = "Trạng thái")]
+        public bool Status { get; set; }
     }
 }

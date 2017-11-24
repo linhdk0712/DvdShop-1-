@@ -55,7 +55,7 @@ namespace DvdShop.Controllers
             if (!ModelState.IsValid) return View(studio);
             if (file != null || file.ContentLength == 0)
             {
-                var pathsCombine = Path.Combine(Server.MapPath("~/Content/Images"), Path.GetFileName(file.FileName));
+                var pathsCombine = Path.Combine(Server.MapPath("~/Content/Images"), file.FileName);
                 file.SaveAs(pathsCombine);
             }
             var studioViewModel = AutoMapper.Mapper.Map<Studio>(studio);

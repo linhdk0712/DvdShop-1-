@@ -1,10 +1,9 @@
-﻿
-@{
+﻿@{
 
-//if (Session["user"] == null)
-//{
-//    Response.Redirect("~/Home/Login");
-//}
+    if (Session["user"] == null)
+    {
+        Response.Redirect("~/Home/Login");
+    }
 
 }
 <!DOCTYPE html>
@@ -30,7 +29,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Studio", "Index", "Studios")</li>
-                     <li>@Html.ActionLink("Product", "Index", "Products")</li>
+                    <li>@Html.ActionLink("Product", "Index", "Products")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -39,17 +38,17 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-       
+
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-   
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
     @RenderSection("scripts", required: false)
 </body>

@@ -36,7 +36,7 @@ namespace DvdShop.Controllers
                               DateCreate = a.CreatedDate,
                               ReceivedDate = a.ReceivedDate,
                               Comment = a.Comment
-                          }).ToPagedList(page ?? 1,10); 
+                          }).ToPagedList(page ?? 1,7); 
             if (products == null || studios == null)
             {
                 return HttpNotFound();
@@ -145,7 +145,7 @@ namespace DvdShop.Controllers
                 ReceivedDate = product.ReceivedDate,
                 Name = product.Name,
                 CreatedDate = DateTime.Now,
-                //CreatedBy = Session["user"].ToString(),
+                CreatedBy = Session["user"].ToString(),
                 Status = product.Status,
                 StudioId = product.StudioId,
                 IsFullBox = product.IsFullBox,
@@ -182,11 +182,20 @@ namespace DvdShop.Controllers
         {
            
             var product = _productService.GetProductById(id);
-            if (product == null)
+            var productViewModel = new ProductViewModel()
             {
-                return HttpNotFound();
-            }
-            return View(product);
+                Name = product.Name,
+                Comment = product.Comment,
+                CreatedBy = product.CreatedBy,
+                DateCreate = product.CreatedDate,
+                Id = product.Id,
+                IsFullBox = product.IsFullBox,
+                Price = product.Price,
+                ReceivedDate = product.ReceivedDate,
+                Status = product.Status,
+                StudioName = product.Studio.Name
+            };
+            return View(productViewModel);
         }
 
         // POST: Products/Edit/5
@@ -194,11 +203,16 @@ namespace DvdShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ReceivedDate,Name,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy,Status")] Product product)
+        public ActionResult Edit( ProductViewModel product)
         {
+            var products = _productService.GetProductById(product.Id);
             if (!ModelState.IsValid)
                 return View(product);
-            _productService.Update(product);
+            products.ReceivedDate = product.ReceivedDate;
+            products.Name = product.Name;
+            products.UpdatedDate = DateTime.Now;
+            products.UpdatedBy = Session["user"].ToString();
+            _productService.Update(products);
             return RedirectToAction("Index");
         }
 
